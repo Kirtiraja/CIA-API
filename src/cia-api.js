@@ -12,3 +12,18 @@ export class PersonalInfo {
     }
   }
 }
+
+export class EvilInsult {
+  async getPersonalInsult() {
+    try {
+
+      // THIS WILL CALL API WHEN INTIAL API IS RAN
+      let insultResponse =  await fetch(`https://evilinsult.com/generate_insult.php?lang=en&type=json`);
+
+      let jsonifiedResponseInsult = await insultResponse.json();
+      return jsonifiedResponseInsult;
+    } catch(error) {
+      console.error("There was an error handling your request: " + error.message);
+    }
+  }
+}
