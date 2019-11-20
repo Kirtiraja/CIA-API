@@ -1,22 +1,36 @@
 <html>
-  <head>
-    <title>Whats your problem?</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>What does your phone number reveal about you? </h1>
+<head>
+  <title>Whats your problem?</title>
+</head>
+<body>
+  <div class="container">
+
+    <h1>What does your phone number reveal about you? </h1>
+    <!-- INPUT SECTIONS -->
+    <div class="form-group">
+
       <label for="countryCode">Please input your country code</label>
       <input id="countryCode" placeholder="001" type="number">
+    </div>
+    <div class="form-group">
+
       <label for="countryCode">Please input your phone number</label>
       <input id="number" placeholder="5031234567" type="number">
-      <button class="btn-success" id="numberInput">Submit</button>
+    </div>
+    <button class="btn-success" id="numberInput">Submit</button>
+
+    <!-- THIS WILL DISPLAY FUNCTION RETURNS -->
+    <div class="card-header">
+      <h2>CHeck this out!</h2>
+    </div>
+    <div class="card-body">
 
       <div class="errors"></div>
       <div class="showPhoneNumber"></div>
       <div class="showAddress"></div>
       <div class="showYourPeeps"></div>
       <p><span id="insultName"></span><span id="showInsult"></span>
-      <!-- <div class="showInsult"></div> -->
+      </div>
     </div>
   <script type="text/javascript" src="bundle.js"></script></body>
-</html>
+  </html>
