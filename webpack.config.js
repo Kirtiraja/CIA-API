@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -19,30 +20,13 @@ module.exports = {
     new CleanWebpackPlugin(),
     new Dotenv(),
     new HtmlWebpackPlugin({
-      title: 'Ping Pong',
+      title: 'tamagotchi',
       template: './src/index.html',
       inject: 'body'
     })
   ],
   module: {
     rules: [
-      // {
-      //   test:/\.(s*)css$/,
-      //   use: ExtractTextPlugin.extract({
-      //     fallback: 'style-loader',
-      //     use: ['css-loader','sass-loader']
-      //   })
-      // },
-      {
-        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 100000, // Convert images < 8kb to base64 strings
-            name: 'img/[hash]-[name].[ext]'
-          }
-        }]
-      },
       {
         test: /\.css$/,
         use: [
@@ -52,21 +36,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [
+            /node_modules/,
+            /spec/
+          ],
         loader: "eslint-loader"
-      },
-      // {
-      //   test: /\.js$/,
-      //   exclude: [
-      //     /node_modules/,
-      //     /spec/
-      //   ],
-      //   loader: "babel-loader",
-      //   options: {
-      //     presets: ['es2015']
-      //   }
-      // }
-      //THIS BREAKS EVERYTHING, NEEDS CONFIGURING
+      }
     ]
   }
 };
