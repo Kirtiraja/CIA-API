@@ -1,5 +1,7 @@
 import { PersonalInfo } from './../src/cia-api.js';
 import { EvilInsult } from './../src/cia-api.js';
+import { setIntervalAsync } from 'set-interval-async/dynamic';
+import { clearIntervalAsync } from 'set-interval-async';
 import $ from 'jquery';
 import 'bootstrap';
 import './styles.css';
@@ -22,14 +24,14 @@ $(document).ready(function() {
       getElements(response);
     })();
 
-
-    // THIS WILL CALL EVIL INSULTS API
-    (async () => {
-      let evilInsult = new EvilInsult();
-      const insultResponse = await evilInsult.getPersonalInsult();
-
-      getElements2(insultResponse);
-    })();
+// THIS WILL ADD INTERVAL TIMER TO EVIL INSULT ASYNC FUNC
+    const timer = setIntervalAsync(
+      // THIS WILL CALL EVIL INSULTS API
+      async () => {
+        let evilInsult = new EvilInsult();
+        const insultResponse = await evilInsult.getPersonalInsult();
+        getElements2(insultResponse);
+      }, 5000); //TIMER SET
 
 
     // THIS WILL DISPLAY API FUNCTION RETURN ON (DOM)
@@ -48,9 +50,14 @@ $(document).ready(function() {
   });
 });
 
-// ADD INTERVAL WITH CLEAR INTERVAL TO SOME KIND OF DOM NOTICE(POSSIBLY INSULT API)
-// ✅✅✅ADD ERROR NOTICE DOM WHEN API CALL IS BAD(TEST IT) return a 200 OK??----completed this error practice with Try & Catch block error message in cosole and DOM.
+✅✅✅// ADD INTERVAL WITH CLEAR INTERVAL TO SOME KIND OF DOM NOTICE(POSSIBLY INSULT API)
+
+✅✅✅//ADD ERROR NOTICE DOM WHEN API CALL IS BAD(TEST IT) return a 200 OK??----completed this error practice with Try & Catch block error message in cosole and DOM.
+
 // ADD SOME SORT OF PROMISE FUNCTIONS
+
 // STYLING OF DOM
-// UPDATE README (INSTALL WEBPACK,KEYs ETC)
+
+✅✅✅// UPDATE README (INSTALL WEBPACK,KEYs ETC)
+
 // IF WE HAVE TIME PRACTICE ADDING A NEW OBJECT(COMPLAINT FORM)

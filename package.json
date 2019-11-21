@@ -33,6 +33,7 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
+    "set-interval-async": "1.0.29",
     "url-loader": "^2.2.0"
   }
 }

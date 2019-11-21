@@ -15,6 +15,7 @@ export class PersonalInfo {
 }
 
 export class EvilInsult {
+  
   async getPersonalInsult() {
     try {
 
@@ -28,4 +29,11 @@ export class EvilInsult {
       console.error("There was an error handling your request: " + error.message);
     }
   }
+
 }
+
+
+    // setInterval(function(){
+    //   request.open("GET", url, true);
+    //   request.send();
+    // }, 5000);
