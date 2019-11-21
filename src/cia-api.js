@@ -1,13 +1,14 @@
 export class PersonalInfo {
-  async getPersonalInfoByNumber(inputedCountryCode, inputedNumber) {
+  async getPersonalInfoByNumber(inputedNumber) {
     try {
 
       // THIS WILL CALL API WITH NUBER AND COUNTRY CODE INPUT
-      let response =  await fetch(`https://api.ekata.com/3.0/phone.json?api_key=${process.env.CIA}&phone.country_hint=${inputedCountryCode}&phone=${inputedNumber}`);
+      let response =  await fetch(`https://api.ekata.com/3.0/phone.json?api_key=${process.env.CIA}&phone.country_hint=001&phone=${inputedNumber}`);
 
       let jsonifiedResponse = await response.json();
       return jsonifiedResponse;
     } catch(error) {
+      alert("sorry website is grumpy, check back later!");
       console.error("There was an error handling your request: " + error.message);
     }
   }
@@ -23,6 +24,7 @@ export class EvilInsult {
       let jsonifiedResponseInsult = await insultResponse.json();
       return jsonifiedResponseInsult;
     } catch(error) {
+      alert("sorry website is grumpy, check back later!");
       console.error("There was an error handling your request: " + error.message);
     }
   }

@@ -11,13 +11,13 @@ $(document).ready(function() {
   // TAKES USER INPUT AND HOLD TO VARIABLE
   $('#numberInput').click(function() {
     const inputedNumber = $('#number').val();
-    const inputedCountryCode = $('#countryCode').val();
+
 
 
     // THIS WILL CALL THE PERSONAL INFO API FUNCTION
     (async () => {
       let personalInfo = new PersonalInfo();
-      const response = await personalInfo.getPersonalInfoByNumber(inputedCountryCode,inputedNumber);
+      const response = await personalInfo.getPersonalInfoByNumber(inputedNumber);
 
       getElements(response);
     })();
@@ -49,7 +49,7 @@ $(document).ready(function() {
 });
 
 // ADD INTERVAL WITH CLEAR INTERVAL TO SOME KIND OF DOM NOTICE(POSSIBLY INSULT API)
-// ADD ERROR NOTICE DOM WHEN API CALL IS BAD(TEST IT) return a 200 OK??
+// ✅✅✅ADD ERROR NOTICE DOM WHEN API CALL IS BAD(TEST IT) return a 200 OK??----completed this error practice with Try & Catch block error message in cosole and DOM.
 // ADD SOME SORT OF PROMISE FUNCTIONS
 // STYLING OF DOM
 // UPDATE README (INSTALL WEBPACK,KEYs ETC)
